@@ -9,7 +9,7 @@
 -- 1 is 100% chance it will spawn Soul.  Increase the value to lower the chance. 100 would be a 1 in 100 chance.
 -- 1 will be a 100% chance of spectral packs having Soul.
 -- Once all legendary cards are owned, they will start to spawn the default joker.  This is base game behavior.
-local chanceValue = 1
+local chanceValue = 0.5
 -- Can be anything actually.  You can make vouchers show up in packs.
 local probUppedCard = "c_soul"
 -- local pack_types = {"Tarot", "Spectral", "Tarot_Planet"}
@@ -37,7 +37,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 	
 	local newCardGen
 	if (type_condition(probUppedCardPacks, _type)) then
-		if math.random(chanceValue) == 1 then
+		if math.random(chanceValue) == 0.5 then
 			newCardGen = originalFuncRef(_type, area, legendary, _rarity, skip_materialize, soulable, probUppedCard, key_append)
 		else
 			newCardGen = originalFuncRef(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
